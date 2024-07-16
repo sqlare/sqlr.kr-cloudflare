@@ -11,7 +11,7 @@ app = FastAPI(
     title="sqlr.kr",
     summary="Made By Dev_Nergis(BACK), imnyang(BACK), ny64(FRONT)",
     description="sqlr.kr is a URL shortening service.",
-    version="redis-4.1.0")
+    version="5.0.2")
 
 # noinspection PyTypeChecker
 app.add_middleware(
@@ -40,13 +40,13 @@ async def shorten_link(body: Link):
     url_hash = base64.b85encode(body.url.encode())
 
     if body.password is None:
-        hgQs = {"url": url_hash.hex()}
+        hooks = {"url": url_hash.hex()}
     else:
         salt, password_hash = Security(body.password).hash_new_password()
-        hgQs = {"url": url_hash.hex(), "salt": salt.hex(), "password_hash": password_hash.hex()}
+        hooks = {"url": url_hash.hex(), "salt": salt.hex(), "password_hash": password_hash.hex()}
 
     db = redis.Redis(connection_pool=pool(KEY_DB))
-    await db.json().set(key, Path.root_path(), hgQs)
+    await db.json().set(key, Path.root_path(), hooks)
     await db.close()
 
     return {"short_link": f"{DOMAIN}/{key}"}
