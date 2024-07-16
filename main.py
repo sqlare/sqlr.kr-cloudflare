@@ -28,6 +28,11 @@ async def root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
+@app.get("/ads.txt")
+async def ads():
+    return FileResponse("ads.txt")
+
+
 # noinspection DuplicatedCode
 @app.post("/shorten", response_class=ORJSONResponse)
 async def shorten_link(body: Link):
