@@ -11,7 +11,7 @@ app = FastAPI(
     title="sqlr.kr",
     summary="Made By Dev_Nergis(BACK), imnyang(BACK), ny64(FRONT)",
     description="sqlr.kr is a URL shortening service.",
-    version="5.0.2")
+    version="5.1.0")
 
 # noinspection PyTypeChecker
 app.add_middleware(
