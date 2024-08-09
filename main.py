@@ -1,9 +1,9 @@
 from fastapi import *
 from fastapi.responses import *
 from fastapi.middleware.cors import *
-from lib.function import *
-from lib.schema import *
-from lib.variable import *
+from src.function import *
+from src.schema import *
+from src.variable import *
 from redis.commands.json.path import Path
 import base64
 
