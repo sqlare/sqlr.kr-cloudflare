@@ -1,5 +1,5 @@
 from typing import *
-from variable import *
+from .variable import *
 import random
 import string
 import hashlib
