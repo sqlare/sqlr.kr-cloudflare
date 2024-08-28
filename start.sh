@@ -1,1 +1,1 @@
-hypercorn main:app --bind localhost:2001 --debug
+hypercorn main:app --bind localhost:2001 -w 10
