@@ -6,3 +6,4 @@ emoji
 python-dotenv
 qrcode
 pydantic
+hypercorn
